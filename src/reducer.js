@@ -3,12 +3,11 @@ export const initialState = {
     playlists: [],
     playing: false,
     item : null,
-    token : 'BQB1K8L07b-iBiav5GHA5BIvH5TS8APAPkEpggp36xQdpPiwx08SeLjDpO9BtWewDtmZRc4MWfYODSyrcrHDlS6yIsK3l0AguDREvExyrvAT462tUGIzU-y7E1nspeiQdOI7mki3IlVciQrXeKCz-hrlETjWzIDtiSsXZ9K15RlI_P6fS89mZgA9mi1XoIZukUrLWsb-DQWzpFzFPQ',
+    token : null,
 }
 
 
 const reducer = (state,action) => {
-    console.log(action);
 
     switch(action.type){
         case 'SET_USER' : 
@@ -28,8 +27,16 @@ const reducer = (state,action) => {
                 ...state,
                 playlists: action.playlists,
             }
+
+        case 'SET_DISCOVER_WEEKLY':
+            console.log(action.discover_weekly);
+            return {
+                ...state,
+                discover_weekly : action.discover_weekly,
+            }
         default: 
             return state;
+            
     }
 }
 
